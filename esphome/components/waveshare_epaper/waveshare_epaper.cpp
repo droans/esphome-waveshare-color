@@ -707,7 +707,8 @@ void WaveshareEPaper4P2InB::initialize() {
 }
 
 void HOT WaveshareEPaper4P2InB::display() {
-  const int buffer_length = this->get_buffer_length_()/get_color_internal();
+  const int buffer_length = this->get_buffer_length_()/this->get_color_internal();
+
   // COMMAND DATA START TRANSMISSION 1 (B/W data)
   this->command(0x10);
   this->start_data_();
