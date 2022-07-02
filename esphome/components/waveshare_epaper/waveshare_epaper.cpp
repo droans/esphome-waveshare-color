@@ -987,8 +987,8 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x07);
   this->data(0x07);
   this->data(0x3A);
-  this->data(0x30);
-  this->data(0x03);
+  this->data(0x20);
+  this->data(0x10);
   this->command(0x04);
 
   delay(100);  // NOLINT
