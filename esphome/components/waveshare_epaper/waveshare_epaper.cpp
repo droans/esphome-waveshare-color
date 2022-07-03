@@ -985,23 +985,20 @@ void WaveshareEPaper7P5InV2B::initialize() {
   // COMMAND POWER SETTING
   this->command(0x01);
   this->data(0x07);
-  this->data(0x07);
+  this->data(0x17);
   this->data(0x3F);
   this->data(0x3F);
-  this->data(0x11);
-
-  this->command(0x82);
-  this->data(0x24);
+  this->data(0x00);
 
   // BOOSTER SETTING
   this->command(0x06);
-  this->data(0x27);
-  this->data(0x27);
-  this->data(0x2F);
+  this->data(0x17);
+  this->data(0x17);
+  this->data(0x0C);
   this->data(0x17);
 
   this->command(0x30);
-  this->data(0x24);
+  this->data(0x06);
 
   this->command(0x04);
 
@@ -1010,6 +1007,13 @@ void WaveshareEPaper7P5InV2B::initialize() {
   // COMMAND PANEL SETTING
   this->command(0x00);
   this->data(0x0F); // Todo Change for red color
+
+  // COMMAND PLL SETTING
+  this->command(0x30);
+  this->data(0x06);
+  // COMMAND VCOM DC SETTING
+  this->command(0x82);
+  this->data(0x24);
 
   // COMMAND RESOLUTION SETTING
   this->command(0x61);
