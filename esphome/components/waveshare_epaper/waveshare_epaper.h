@@ -354,6 +354,8 @@ class WaveshareEPaper7P5InV2B : public WaveshareEPaper {
     return display::ColorUtil::color_to_332(display::COLOR_ON);
   }
 
+  display::DisplayType get_display_type() override { return display::DisplayType::DISPLAY_TYPE_COLOR; }
+  
  protected:
   int get_width_internal() override;
 
