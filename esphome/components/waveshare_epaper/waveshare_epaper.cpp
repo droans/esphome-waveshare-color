@@ -1009,8 +1009,8 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x0F); // Todo Change for red color
 
   // COMMAND PLL SETTING
-  this->command(0x30);
-  this->data(0x06);
+  // this->command(0x30);
+  // this->data(0x06);
   // COMMAND VCOM DC SETTING
   this->command(0x82);
   this->data(0x24);
