@@ -1028,7 +1028,8 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x00);
   // COMMAND VCOM AND DATA INTERVAL SETTING
   this->command(0x50);
-  this->data(0x10);//10
+  // this->data(0x10);//10
+  this->data(0x11);//10
   this->data(0x07);
   // COMMAND TCON SETTING
   this->command(0x60);
