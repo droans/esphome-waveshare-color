@@ -988,7 +988,7 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x17);
   this->data(0x3F);
   this->data(0x3F);
-  this->data(0x00);
+  // this->data(0x00);
 
   // BOOSTER SETTING
   this->command(0x06);
