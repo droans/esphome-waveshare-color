@@ -1001,9 +1001,9 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x06);
 
   this->command(0x04);
-
   delay(100);  // NOLINT
   this->wait_until_idle_();
+  
   // COMMAND PANEL SETTING
   this->command(0x00);
   this->data(0x0F); // Todo Change for red color
@@ -1011,6 +1011,7 @@ void WaveshareEPaper7P5InV2B::initialize() {
   // COMMAND PLL SETTING
   // this->command(0x30);
   // this->data(0x06);
+
   // COMMAND VCOM DC SETTING
   this->command(0x82);
   this->data(0x30);
@@ -1023,17 +1024,21 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x20);
   this->data(0x01);
   this->data(0xE0);
+
   // COMMAND DUAL SPI MODE
   this->command(0x15);
   this->data(0x00);
+
   // COMMAND VCOM AND DATA INTERVAL SETTING
   this->command(0x50);
   // this->data(0x10);//10
   this->data(0x11);//10
   this->data(0x07);
+
   // COMMAND TCON SETTING
   this->command(0x60);
   this->data(0x22);
+
   // COMMAND RESOLUTION GATE SETTING
   this->command(0x65);
   this->data(0x00);
