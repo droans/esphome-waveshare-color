@@ -933,6 +933,13 @@ void WaveshareEPaper7P5InV2::initialize() {
   this->data(0x3f);
   this->command(0x04);
 
+  // BOOSTER SETTING
+  this->command(0x06);
+  this->data(0x17);
+  this->data(0x17);
+  this->data(0x24);
+  this->data(0x17);
+  
   delay(100);  // NOLINT
   this->wait_until_idle_();
   // COMMAND PANEL SETTING
