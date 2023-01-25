@@ -1047,11 +1047,11 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x22);
 
   // COMMAND RESOLUTION GATE SETTING
-  this->command(0x65);
-  this->data(0x00);
-  this->data(0x00);
-  this->data(0x00);
-  this->data(0x00);
+  // this->command(0x65);
+  // this->data(0x00);
+  // this->data(0x00);
+  // this->data(0x00);
+  // this->data(0x00);
 }
 void HOT WaveshareEPaper7P5InV2B::display() {
   uint32_t buf_len = this->get_buffer_length_();
