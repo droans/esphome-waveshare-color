@@ -927,18 +927,18 @@ void WaveshareEPaper7P5In::dump_config() {
 void WaveshareEPaper7P5InV2::initialize() {
   // COMMAND POWER SETTING
   this->command(0x01);
-  this->data(0x07);
-  this->data(0x07);
-  this->data(0x3f);
-  this->data(0x3f);
-  this->command(0x04);
+  this->data(0x07);                                 // Border, LV Power, Source Power, Gate Power
+  this->data(0x07);                                 // OTP Power, VCOM Slew Rate, VGH/VGL
+  this->data(0x3f);                                 // VDH
+  this->data(0x3f);                                 // VDL
+  this->command(0x04);                              // POWER ON
 
   // BOOSTER SETTING
   this->command(0x06);
-  this->data(0x17);
-  this->data(0x17);
-  this->data(0x24);
-  this->data(0x17);
+  this->data(0x17);                                 // Phase A Soft Start, Driving Strength, Off Time
+  this->data(0x17);                                 // Phase B Soft Start, Driving Strength, Off Time
+  this->data(0x24);                                 // Phase C1 Driving Strength, Off Time
+  this->data(0x17);                                 // Phase C2 Enable, Driving Strength, Off Time
   
   delay(100);  // NOLINT
   this->wait_until_idle_();
@@ -952,7 +952,7 @@ void WaveshareEPaper7P5InV2::initialize() {
   this->data(0x20);
   this->data(0x01);
   this->data(0xE0);
-  // COMMAND ...?
+  // COMMAND PLL CONTROL
   this->command(0x15);
   this->data(0x00);
   // COMMAND VCOM AND DATA INTERVAL SETTING
@@ -991,17 +991,19 @@ void WaveshareEPaper7P5InV2::dump_config() {
 void WaveshareEPaper7P5InV2B::initialize() {
   // COMMAND POWER SETTING
   this->command(0x01);
-  this->data(0x07);
-  this->data(0x07);
-  this->data(0x3F);
-  this->data(0x3F);
+  this->data(0x07);                                 // Border, LV Power, Source Power, Gate Power
+  this->data(0x07);                                 // OTP Power, VCOM Slew Rate, VGH/VGL
+  this->data(0x3f);                                 // VDH
+  this->data(0x3f);                                 // VDL
+  this->command(0x04);                              // POWER ON
 
   // BOOSTER SETTING
   this->command(0x06);
-  this->data(0x17);
-  this->data(0x17);
-  this->data(0x24);
-  this->data(0x17);
+  this->data(0x17);                                 // Phase A Soft Start, Driving Strength, Off Time
+  this->data(0x17);                                 // Phase B Soft Start, Driving Strength, Off Time
+  this->data(0x24);                                 // Phase C1 Driving Strength, Off Time
+  this->data(0x17);                                 // Phase C2 Enable, Driving Strength, Off Time
+  
 
   // this->command(0x30);
   // this->data(0x06);
