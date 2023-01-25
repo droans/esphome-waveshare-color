@@ -1001,7 +1001,7 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->command(0x06);
   this->data(0x17);
   this->data(0x17);
-  this->data(0x0C);
+  this->data(0x24);
   this->data(0x17);
 
   this->command(0x30);
