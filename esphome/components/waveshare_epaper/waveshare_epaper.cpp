@@ -1004,8 +1004,8 @@ void WaveshareEPaper7P5InV2B::initialize() {
   this->data(0x24);
   this->data(0x17);
 
-  this->command(0x30);
-  this->data(0x06);
+  // this->command(0x30);
+  // this->data(0x06);
 
   this->command(0x04);
   delay(100);  // NOLINT
@@ -1014,10 +1014,6 @@ void WaveshareEPaper7P5InV2B::initialize() {
   // COMMAND PANEL SETTING
   this->command(0x00);
   this->data(0x0F); // Todo Change for red color
-
-  // COMMAND PLL SETTING
-  // this->command(0x30);
-  // this->data(0x06);
 
   // COMMAND VCOM DC SETTING
   this->command(0x82);
