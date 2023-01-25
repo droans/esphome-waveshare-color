@@ -952,9 +952,11 @@ void WaveshareEPaper7P5InV2::initialize() {
   this->data(0x20);
   this->data(0x01);
   this->data(0xE0);
+
   // COMMAND PLL CONTROL
   this->command(0x15);
   this->data(0x00);
+  
   // COMMAND VCOM AND DATA INTERVAL SETTING
   this->command(0x50);
   this->data(0x10);
@@ -1008,7 +1010,7 @@ void WaveshareEPaper7P5InV2B::initialize() {
   // this->command(0x30);
   // this->data(0x06);
 
-  this->command(0x04);
+  // this->command(0x04);
   delay(100);  // NOLINT
   this->wait_until_idle_();
   
