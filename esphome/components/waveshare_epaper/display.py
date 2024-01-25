@@ -70,9 +70,10 @@ CONFIG_SCHEMA = cv.All(display.FULL_DISPLAY_SCHEMA.extend({
         cv.positive_time_period_milliseconds,
         cv.Range(max=core.TimePeriod(milliseconds=500)),
     ),
-}).extend(cv.polling_component_schema('1s')).extend(spi.spi_device_schema()),
-                       validate_full_update_every_only_type_a,
-                       cv.has_at_most_one_key(CONF_PAGES, CONF_LAMBDA))
+}) #.extend(cv.polling_component_schema('1s')).extend(spi.spi_device_schema()),
+   #                    validate_full_update_every_only_type_a,
+   #                    cv.has_at_most_one_key(CONF_PAGES, CONF_LAMBDA))
+)
 
 
 def to_code(config):
