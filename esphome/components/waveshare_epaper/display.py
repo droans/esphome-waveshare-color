@@ -59,20 +59,25 @@ def validate_full_update_every_only_type_a(value):
     return value
 
 
-CONFIG_SCHEMA = cv.All(display.FULL_DISPLAY_SCHEMA.extend({
-    cv.GenerateID(): cv.declare_id(WaveshareEPaper),
-    cv.Required(CONF_DC_PIN): pins.gpio_output_pin_schema,
-    cv.Required(CONF_MODEL): cv.one_of(*MODELS, lower=True),
-    cv.Optional(CONF_RESET_PIN): pins.gpio_output_pin_schema,
-    cv.Optional(CONF_BUSY_PIN): pins.gpio_input_pin_schema,
-    cv.Optional(CONF_FULL_UPDATE_EVERY): cv.uint32_t,
-    cv.Optional(CONF_RESET_DURATION): cv.All(
-        cv.positive_time_period_milliseconds,
-        cv.Range(max=core.TimePeriod(milliseconds=500)),
-    ),
-}) #.extend(cv.polling_component_schema('1s')).extend(spi.spi_device_schema()),
-   #                    validate_full_update_every_only_type_a,
-   #                    cv.has_at_most_one_key(CONF_PAGES, CONF_LAMBDA))
+CONFIG_SCHEMA = cv.All(
+    display.FULL_DISPLAY_SCHEMA.extend(
+        {
+            cv.GenerateID(): cv.declare_id(WaveshareEPaper),
+            cv.Required(CONF_DC_PIN): pins.gpio_output_pin_schema,
+            cv.Required(CONF_MODEL): cv.one_of(*MODELS, lower=True),
+            cv.Optional(CONF_RESET_PIN): pins.gpio_output_pin_schema,
+            cv.Optional(CONF_BUSY_PIN): pins.gpio_input_pin_schema,
+            cv.Optional(CONF_FULL_UPDATE_EVERY): cv.uint32_t,
+            cv.Optional(CONF_RESET_DURATION): cv.All(
+                cv.positive_time_period_milliseconds,
+                cv.Range(max=core.TimePeriod(milliseconds=500)),
+            ),
+        }
+    )
+    .extend(cv.polling_component_schema('1s'))
+    .extend(spi.spi_device_schema()),
+    validate_full_update_every_only_type_a,
+    cv.has_at_most_one_key(CONF_PAGES, CONF_LAMBDA)
 )
 
 

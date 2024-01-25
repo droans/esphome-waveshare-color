@@ -3,7 +3,6 @@
 #include "esphome/core/component.h"
 #include "esphome/components/spi/spi.h"
 #include "esphome/components/display/display_buffer.h"
-#include "esphome/core/version.h"
 
 namespace esphome {
 namespace waveshare_epaper {
