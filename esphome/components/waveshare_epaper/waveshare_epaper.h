@@ -3,20 +3,14 @@
 #include "esphome/core/component.h"
 #include "esphome/components/spi/spi.h"
 #include "esphome/components/display/display_buffer.h"
-# include "esphome/core/version.h"
+#include "esphome/core/version.h"
+
 namespace esphome {
 namespace waveshare_epaper {
 
-#if ESPHOME_VERSION_CODE >= VERSION_CODE(2023, 12, 0)
 class WaveshareEPaper : public display::DisplayBuffer,
                         public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_LOW,
                                               spi::CLOCK_PHASE_LEADING, spi::DATA_RATE_2MHZ> {
-#else
-class WaveshareEPaper : public PollingComponent,
-                        public display::DisplayBuffer,
-                        public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST, spi::CLOCK_POLARITY_LOW,
-                                              spi::CLOCK_PHASE_LEADING, spi::DATA_RATE_2MHZ> {
-#endif
  public:
   void set_dc_pin(GPIOPin *dc_pin) { dc_pin_ = dc_pin; }
   float get_setup_priority() const override;
